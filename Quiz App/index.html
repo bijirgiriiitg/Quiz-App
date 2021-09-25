@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outstanding-1</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+<script>
+import Settings from './quiz/settings.js';
+
+new Settings();
+  </script> 
+</head>
+<body>
+  <div class="share-btn-container">
+    <a href="#" class="facebook-btn">
+        <i class="fa fa-facebook"></i>
+    </a>
+
+    <a href="#" class="twitter-btn">
+        <i class="fa fa-twitter"></i>
+    </a>
+
+    <a href="#" class="pinterest-btn">
+        <i class="fa fa-pinterest"></i>
+    </a>
+
+    <a href="#" class="linkedin-btn">
+        <i class="fa fa-linkedin"></i>
+    </a>
+
+    <a href="#" class="whatsapp-btn">
+        <i class="fa fa-whatsapp"></i>
+    </a>
+   
+</div>
+
+  <main>
+    <div class="header">
+      <h2>Global Quiz</h2>
+    </div>
+    <div class="main">
+      <div class="final">
+        <h4>Dashboard</h4>
+        <h3>You answered all of the questions!</h3>
+        <p style="color: red;">Score: </p><p class="score"></p>
+        <h5 style="color: red;">Want to try it again?</h5>
+        <button id="again" class="submit">Again</button>
+      </div>
+     
+      <div class="quiz">
+        <div class="count">
+          <p class="current">0</p><p style="margin-left:40px"> / </p><p class="total"></p>
+        </div>
+        <h3 id="question"></h3>
+        <label id="a1" class="container">
+          <input type="radio" checked="checked" name="radio">
+          <span class="checkmark"></span>
+        </label>
+        <label id="a2" class="container">
+          <input type="radio" name="radio">
+          <span class="checkmark"></span>
+        </label>
+        <label id="a3" class="container">
+          <input type="radio" name="radio">
+          <span class="checkmark"></span>
+        </label>
+        <label id="a4" class="container">
+          <input type="radio" name="radio">
+          <span class="checkmark"></span>
+        </label>
+        <button id="next" class="submit">Submit</button>
+      </div>
+      <div class="settings">
+        <h3>Set up your Quiz!</h3>
+        <label for="category" style="color: whitesmoke;">Quiz Category</label>
+        <select class="paper" name="category" id="category">
+          <option value="Select" selected disabled>Select</option>
+          <option value="9">General Knowledge</option>
+          <option value="27">Animals</option>
+          <option value="15">Video Games</option>
+          <option value="23">History</option>
+          <option value="21">Sports</option>
+          <option value="10">Novels</option>
+        </select>
+        <div class="mt30">
+          <label for="difficulty" style="color:whitesmoke;">Difficulty</label>
+          <label class="container" style="display: inline; margin-left: 30px;">Easy
+            <input type="radio" name="radio" id="easy">
+            <span class="checkmark" style="margin-top: 2px;"></span>
+          </label>
+          <label class="container" style="display: inline; margin-left: 30px;">Medium
+            <input type="radio" name="radio" id="medium">
+            <span class="checkmark" style="margin-top: 2px;"></span>
+          </label>
+          <label  class="container" style="display: inline; margin-left: 30px;">Hard
+            <input type="radio" name="radio" id="hard">
+            <span class="checkmark" style="margin-top: 2px;"></span>
+          </label>
+        </div>
+        <div class="mt30">
+          <label for="questions" style="color: white;">Number of questions</label>
+          <input name="questions" id="questions" type="text" pattern="[0-9]*" />
+        </div>  
+        <button id="start" class="submit">Start</button>
+      </div>  
+    </div>
+  </main>
+ 
+<script type="module">
+import Settings from './quiz/settings.js';
+
+new Settings();
+</script>
+<script>
+const ffbBtn = document.querySelector(".facebook-btn");
+const ftwBtn = document.querySelector(".twitter-btn");
+const fpiBtn = document.querySelector(".pinterest-btn");
+const fliBtn = document.querySelector(".linkedin-btn");
+const fpoBtn = document.querySelector(".pocket-btn")
+const fwaBtn = document.querySelector(".whatsapp-btn")
+
+
+function init() {
+    let postUrl = encodeURI(document.location.href);
+    let postTitle = encodeURI("Hi everyone, please check this out: ");
+    let via = encodeURI("BasumataryBijir");
+
+
+    ffbBtn.setAttribute(
+        "href",
+        `https://www.facebook.com/sharer.php?u=${postUrl}`
+    );
+
+    ftwBtn.setAttribute(
+        "href",
+        `https://twitter.com/share?url=${postUrl}&text=${postTitle}&via=${via}`
+    );
+
+    fpiBtn.setAttribute(
+        "href",
+        `https://pinterest.com/pin/create/bookmarklet/?url=${postUrl}&description=${postTitle}`
+    );
+
+    fliBtn.setAttribute(
+        "href",
+        `https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`
+    );
+
+    fpoBtn.setAttribute(
+        "href",
+        `https://getpocket.com/save?url=${postUrl}&title=${postTitle}`
+    );
+    fwaBtn.setAttribute(
+        "href",
+        `https://wa.me/?text=${postTitle} ${postUrl}`
+    );
+}
+
+init();
+  </script>
+</body>
+</html>
